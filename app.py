@@ -13,6 +13,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, classification_report
 import streamlit as st
 import joblib
+import kagglehub
 
 # Streamlit Page Configuration
 st.set_page_config(page_title="IMDB Sentiment Analyzer", page_icon="🎬", layout="centered")
