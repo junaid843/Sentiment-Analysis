@@ -53,8 +53,16 @@ def load_and_train_model():
     st.info("Training the model for the first time... Please wait.")
     
     # Load the dataset
-    df = pd.read_csv('IMDB Dataset.csv', on_bad_lines='skip', engine='python')
-    
+    #df = pd.read_csv('IMDB Dataset.csv', on_bad_lines='skip', engine='python')
+    # Download dataset from Kaggle
+    path = kagglehub.dataset_download(
+        "lakshmi25npathi/imdb-dataset-of-50k-movie-reviews"
+    )
+
+    csv_path = os.path.join(path, "IMDB Dataset.csv")
+
+# Load the dataset
+    df = pd.read_csv(csv_path, on_bad_lines='skip', engine='python')
     # Apply preprocessing
     df['processed_review'] = df['review'].apply(preprocess_text)
     df['processed_review'] = df['processed_review'].apply(tokenize_and_stem)
