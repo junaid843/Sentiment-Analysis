@@ -1,5 +1,3 @@
-import sys
-print(sys.executable)
 
 
 # Import necessary libraries
